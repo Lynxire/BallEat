@@ -24,29 +24,36 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         transform.localScale = new Vector3(_curentMass,  _curentMass, _curentMass);
         _curentMass = Mathf.LerpUnclamped(_curentMass, _targetMass, _speedSizeAdd);
+
+        #region Player Input
+
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         Vector3 move = new Vector3(moveHorizontal, 0.0f, moveVertical);
-        _rb.AddForce(move * _speed);
+        _rb.velocity = move * _speed;
+
+        #endregion
+
     }
-    void OnCollisionEnter(Collision myCollision)
+    void OnCollisionEnter(Collision collision)
     {
-        if (myCollision.gameObject.tag == "Destr")
+        if (collision.gameObject.GetComponent<Destroy>())
         {
-            if (!myCollision.gameObject.GetComponent<Destroy>().GetStay())
+            if (!collision.gameObject.GetComponent<Destroy>().GetStay())
             {
-                if (myCollision.gameObject.GetComponent<MassObject>().isBiggest(_mass.GetMass()))
+                if (collision.gameObject.GetComponent<MassObject>().isBiggest(_mass.GetMass()))
                 {
                     _targetMass += 0.5F;
-                    _mass.AddMass(myCollision.gameObject.GetComponent<MassObject>().GetMass() / 2);
-                    _speed -= _mass.GetMass() / 10;
-                    myCollision.gameObject.GetComponent<Destroy>().DestroyObj();
-                    myCollision.gameObject.GetComponent<Destroy>().SetStay(true);
+                    _mass.AddMass(collision.gameObject.GetComponent<MassObject>().GetMass() / 2);
+                    if(_speed > 0)
+                         _speed -= _mass.GetMass() / 10;
+                    collision.gameObject.GetComponent<Destroy>().DestroyObj();
+                    collision.gameObject.GetComponent<Destroy>().SetStay(true);
                 }
             }
-
         }
     }
 }

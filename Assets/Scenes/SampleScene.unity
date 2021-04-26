@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3729358627066177607, guid: d1909d3795b77e54ea97dfb1054d3198,
+        type: 3}
+      propertyPath: m_TagString
+      value: Destroy
+      objectReference: {fileID: 0}
     - target: {fileID: 3729358627066177627, guid: d1909d3795b77e54ea97dfb1054d3198,
         type: 3}
       propertyPath: m_RootOrder
@@ -402,6 +407,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3729358627066177607, guid: d1909d3795b77e54ea97dfb1054d3198,
+        type: 3}
+      propertyPath: m_TagString
+      value: Destroy
+      objectReference: {fileID: 0}
     - target: {fileID: 3729358627066177627, guid: d1909d3795b77e54ea97dfb1054d3198,
         type: 3}
       propertyPath: m_RootOrder
@@ -518,7 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412ba771433d94840807e4ef008da854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
+  _speed: 5
   _curentMass: 2
   _targetMass: 1
   _speedSizeAdd: 0.1
@@ -714,7 +724,7 @@ Transform:
   m_GameObject: {fileID: 1599275201}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 20, y: 1, z: 20}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -770,6 +780,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607412291282028844, guid: 1a9f8b1762f29364a8b3f8abd5fa9ab8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Destroy
       objectReference: {fileID: 0}
     - target: {fileID: 4607412291282028848, guid: 1a9f8b1762f29364a8b3f8abd5fa9ab8,
         type: 3}
@@ -913,6 +928,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: lamp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897440171362949087, guid: 526eb15f879b0d94ca3a13cf8a94ab32,
+        type: 3}
+      propertyPath: m_TagString
+      value: Destroy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 526eb15f879b0d94ca3a13cf8a94ab32, type: 3}
