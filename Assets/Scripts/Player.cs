@@ -38,6 +38,15 @@ public class Player : MonoBehaviour
         #endregion
 
     }
+
+    private void RemoveSpeed(float value) 
+    {
+        if (_speed > 0)
+            _speed -= value;
+        if (_speed < 0)
+            _speed = 0;
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.GetComponent<Destroy>())
@@ -48,8 +57,7 @@ public class Player : MonoBehaviour
                 {
                     _targetMass += 0.5F;
                     _mass.AddMass(collision.gameObject.GetComponent<MassObject>().GetMass() / 2);
-                    if(_speed > 0)
-                         _speed -= _mass.GetMass() / 10;
+                    RemoveSpeed(_mass.GetMass() / 10);
                     collision.gameObject.GetComponent<Destroy>().DestroyObj();
                     collision.gameObject.GetComponent<Destroy>().SetStay(true);
                 }
